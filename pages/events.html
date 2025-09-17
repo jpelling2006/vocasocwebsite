@@ -16,8 +16,75 @@
     <style>
         div {border: 1px solid blue}
     </style>
+    
     <body>
         <h1>Events</h1>
+
+        <br/>
+
+        <div id="eventList">
+            <!-- Events will be displayed here -->
+        </div>
+        
+        <script>
+            
+            // Function to get the ordinal suffix
+            function getOrdinalSuffix(day) {
+                if (day > 3 && day < 21) return 'th'; // Handle 11th, 12th, 13th, etc.
+                switch (day % 10) {
+                case 1: return 'st';
+                case 2: return 'nd';
+                case 3: return 'rd';
+                default: return 'th';
+                }
+            }         
+
+            // Fetch the JSON file using fetch API
+            fetch('../data/socials.json')
+                .then(response => response.json())  // Parse the JSON response
+                .then(events => {
+                // Loop through the events and display each one
+                const eventListContainer = document.getElementById('eventList');
+                events.forEach(event => {
+                    // Convert date to more readable formats
+                    const eventDate = new Date(event.date);
+                    const eventDayName = eventDate.toLocaleDateString('en-GB', { weekday: 'long' });
+                    const eventDayNumber = eventDate.getDate() + getOrdinalSuffix(eventDate.getDate());
+                    const eventMonth = eventDate.toLocaleString('en-GB', { month: 'short' });
+                    const eventTime = eventDate.toLocaleTimeString('en-GB', { hour12: false, hour: '2-digit', minute: '2-digit' });
+
+
+                    // Create new divs for each event
+                    const dateDiv = document.createElement('div');
+                    dateDiv.classList.add('date');
+
+                    const eventDiv = document.createElement('div');
+                    eventDiv.classList.add('event');
+                    
+
+                    // Add details to the divs
+                    dateDiv.innerHTML = `
+                        <h5>${eventDayName}</h5>
+                        <h3>${eventDayNumber} ${eventMonth}</h3>
+                        <h3>${eventTime}</h3>
+                        <h2><strong>Date:</strong> ${eventDate.toLocaleString()}</h2>
+                    `;
+
+                    eventDiv.innerHTML = `
+                        <h2>${event.title}</h2>
+                        <p><strong>Category:</strong> ${event.category}</p>
+                    `;
+            
+                    // Append the divs to the event list container
+                    eventListContainer.appendChild(dateDiv);
+                    eventListContainer.appendChild(eventDiv);
+                });
+              })
+              .catch(error => console.error('Error loading JSON:', error));
+        </script>
+
+        <br/>
+
         <div class="container text-center" style="width: 50vw;">
             <div class="row">
                 <div class="col-3">Date 1</div>
@@ -33,7 +100,38 @@
                     Content
                 </div>
             </div>
+            <div class="row">
+                <div class="col-3">Date 3</div>
+                <div class="col-9">
+                    <h3>Title</h3>
+                    Content
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">Date 4</div>
+                <div class="col-9">
+                    <h3>Title</h3>
+                    Content
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">Date 5</div>
+                <div class="col-9">
+                    <h3>Title</h3>
+                    Content
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-3">Date 6</div>
+                <div class="col-9">
+                    <h3>Title</h3>
+                    Content
+                </div>
+            </div>
         </div>
+        
+        <br/>
+        
 
         <!-- scripts required for bootstrap -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>

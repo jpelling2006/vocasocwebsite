@@ -1,0 +1,31 @@
+[
+    {
+        "title" : "GIAG 1: Quiz",
+        "date" : "2025-09-30T18:30:00+01:00",
+        "category" : "vocaloid"
+    },
+
+    {
+        "title" : "Gatekeeper + NQ64",
+        "date" : "2025-10-03T18:30:00+01:00",
+        "category" : "trip"
+    },
+
+    {
+        "title" : "GIAG 2: Party Games",
+        "date" : "2025-10-07T18:30:00+01:00",
+        "category" : "silly"
+    },
+
+    {
+        "title" : "Among Us",
+        "date" : "2025-10-12T18:30:00+01:00",
+        "category" : "online"
+    },
+
+    {
+        "title" : "Hologram building workshop",
+        "date" : "2025-10-14T18:30:00+01:00",
+        "category" : "vocaloid"
+    }
+]
