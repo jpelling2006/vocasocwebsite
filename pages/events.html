@@ -13,43 +13,57 @@
 
         <title> - Cardiff Vocaloid Society</title>
     </head>
+
     <style>
-        .date-box {
-            background-color: #a7c7e7;  /* Light pastel blue */
-            text-align: center;         /* Center the text */
-            padding: var(--space-s-l);
+        .calendar {
 
-        }
-
-        .event-box {
-            background-color: #e7a7a7;  /* Light pastel blue */
-            text-align: center;         /* Center the text */
-            padding: var(--space-s-l);
         }
 
         .row-box {
-            border: 1px solid black;
+            background-color: #ffffff;
+            height: 42vw - clamp(0vw, 20vw, 42vw);
+            border-radius: 25px;
+            padding: var(--space-3xs-s);
+            margin: var(--space-s-m);
+        }
+
+        .date-box {
+            display: grid;
+            text-align: center;
+            place-items: center;
+            
+            background-color: #dce3eb;
+            border-radius: calc(25px - var(--space-3xs-2xs));
+        }
+
+        .event-box {
+            
+            text-align: center;
+            padding: var(--space-2xs-xs);
         }
     </style>
     
     <body>
-        <h1 style="font-size:var(--step-4);">Events</h1>    
-
-
-        <div class="container">
-            <div class="row">
-              <div class="col">
-                <h1 style="font-size: var(--step--2); margin-bottom: var(--space-s);">Responsive Title</h1>
-                <p style="font-size: var(--step-0); margin-bottom: var(--space-xs);">Lorem ipsum dolor sit amet, consectetur adipiscing elit.</p>
-              </div>
-            </div>
-          </div>
+        <h1 style="font-size:var(--step-4);">Events</h1>
 
         <br>
 
-        <div class="container" id="eventList">
+        <div class="calendar">
+        <div class="container" id="eventsList">
             <!-- Events will be displayed here -->
         </div>
+        </div>
+
+
+        <br>
+
+        <h1>h1</h1>
+        <h2>h2</h2>
+        <h3>h3</h3>
+        <h4>h4</h4>
+        <h5>h5</h5>
+        <h6>h6</h6>
+        <p>p</p>
         
         <script>
             // Function to get the ordinal suffix
@@ -61,14 +75,19 @@
                 case 3: return 'rd';
                 default: return 'th';
                 }
-            }         
+            }
+
+            function addHours(date, hours) {
+                date.setHours(date.getHours() + hours);
+                return date;
+            }
 
             // Fetch the JSON file using fetch API
             fetch('../data/socials.json')
                 .then(response => response.json())  // Parse the JSON response
                 .then(events => {
                     // Loop through the events and display each one
-                    const eventListContainer = document.getElementById('eventList');
+                    const eventsListContainer = document.getElementById('eventsList');
                     events.forEach(event => {
                         // Convert date to more readable formats
                         const eventDate = new Date(event.date);
@@ -76,42 +95,51 @@
                         const eventDayNumber = eventDate.getDate() + getOrdinalSuffix(eventDate.getDate());
                         const eventMonth = eventDate.toLocaleString('en-GB', { month: 'short' });
                         const eventTime = eventDate.toLocaleTimeString('en-GB', { hour12: false, hour: '2-digit', minute: '2-digit' });
+                        const eventEndTime = addHours(eventDate, event.length).toLocaleTimeString('en-GB', { hour12: false, hour: '2-digit', minute: '2-digit' });
 
 
                         // Create new divs for each event
                         const dateDiv = document.createElement('div');
-                        dateDiv.classList.add('date-box', 'col');
+                        dateDiv.classList.add('date-box', 'col-4');
 
                         const eventDiv = document.createElement('div');
-                        eventDiv.classList.add('event-box', 'col');
+                        eventDiv.classList.add('event-box', 'col-8');
 
                         // Add details to the divs
                         dateDiv.innerHTML = `
-                            ${eventDayName}
-                            <br>
-                            ${eventDayNumber} ${eventMonth}
-                            <br>
-                            ${eventTime}
+                            <p>
+                                <b style="font-size: var(--space-s-l);">${eventDayName}</b>
+                                <br>
+                                <b style="font-size: var(--space-s-l);">${eventDayNumber} ${eventMonth}</b>
+                                <br>
+                                <b style="font-size: var(--space-xs-s);">${eventTime} - ${eventEndTime}</b>
+                            </p>
                         `;
 
                         eventDiv.innerHTML = `
-                            <h2>${event.title}</h2>
+                        <p>
+                            <b style="font-size: var(--space-s-l);">${event.title}</b>
+                            <p>${event.description}</p>
                             <p><strong>Category:</strong> ${event.category}</p>
+                        </p>
                         `;
-                        
 
+                        // Create a div for the row
                         const rowDiv = document.createElement('div');
-                        rowDiv.classList.add('row-box', 'row', 'row-cols-2');
+                        rowDiv.classList.add('row-box', 'row', 'row-cols-6');
 
-                        // Append the divs to the event list container
+                        // Append the divs to the row
                         rowDiv.appendChild(dateDiv);
                         rowDiv.appendChild(eventDiv);
-
-                        eventListContainer.appendChild(rowDiv);
+                        
+                        // Append the row to the events container
+                        eventsListContainer.appendChild(rowDiv);
                     });
                 })
                 .catch(error => console.error('Error loading JSON:', error));
         </script>
+
+        
         
 
         <!-- scripts required for bootstrap -->

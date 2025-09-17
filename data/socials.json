@@ -2,30 +2,40 @@
     {
         "title" : "GIAG 1: Quiz",
         "date" : "2025-09-30T18:30:00+01:00",
-        "category" : "vocaloid"
+        "length" : 2,
+        "category" : "vocaloid",
+        "description" : "Instead of tightening our grip by loading up on breakpoints, we can let go, embracing the ebb and flow with a more fluid and systematic approach to our design foundations. Design and develop rapidly using a handful of related rules, building the system, not every permutation of its contents at arbitrary breakpoints. Streamline communication and collaboration between design and development. Visualise the invisible: componentize responsive space, codifying its implementation and behavior. Create bespoke constraints for your projects to ensure consistent and harmonious designs. Swap jarring breakpoint jumps for buttery-smooth interpolation, with programmatically tailored type and space scales for every screen size."
     },
 
     {
         "title" : "Gatekeeper + NQ64",
         "date" : "2025-10-03T18:30:00+01:00",
-        "category" : "trip"
+        "length" : 2,
+        "category" : "trip",
+        "description" : "Instead of tightening our grip by loading up on breakpoints, we can let go, embracing the ebb and flow with a more fluid and systematic approach to our design foundations. Design and develop rapidly using a handful of related rules, building the system, not every permutation of its contents at arbitrary breakpoints. Streamline communication and collaboration between design and development. Visualise the invisible: componentize responsive space, codifying its implementation and behavior. Create bespoke constraints for your projects to ensure consistent and harmonious designs. Swap jarring breakpoint jumps for buttery-smooth interpolation, with programmatically tailored type and space scales for every screen size."
     },
 
     {
         "title" : "GIAG 2: Party Games",
         "date" : "2025-10-07T18:30:00+01:00",
-        "category" : "silly"
+        "length" : 2,
+        "category" : "silly",
+        "description" : "Instead of tightening our grip by loading up on breakpoints, we can let go, embracing the ebb and flow with a more fluid and systematic approach to our design foundations. Design and develop rapidly using a handful of related rules, building the system, not every permutation of its contents at arbitrary breakpoints. Streamline communication and collaboration between design and development. Visualise the invisible: componentize responsive space, codifying its implementation and behavior. Create bespoke constraints for your projects to ensure consistent and harmonious designs. Swap jarring breakpoint jumps for buttery-smooth interpolation, with programmatically tailored type and space scales for every screen size."
     },
 
     {
         "title" : "Among Us",
         "date" : "2025-10-12T18:30:00+01:00",
-        "category" : "online"
+        "length" : 2,
+        "category" : "online",
+        "description" : "Instead of tightening our grip by loading up on breakpoints, we can let go, embracing the ebb and flow with a more fluid and systematic approach to our design foundations. Design and develop rapidly using a handful of related rules, building the system, not every permutation of its contents at arbitrary breakpoints. Streamline communication and collaboration between design and development. Visualise the invisible: componentize responsive space, codifying its implementation and behavior. Create bespoke constraints for your projects to ensure consistent and harmonious designs. Swap jarring breakpoint jumps for buttery-smooth interpolation, with programmatically tailored type and space scales for every screen size."
     },
 
     {
         "title" : "Hologram building workshop",
         "date" : "2025-10-14T18:30:00+01:00",
-        "category" : "vocaloid"
+        "length" : 2,
+        "category" : "vocaloid",
+        "description" : "Instead of tightening our grip by loading up on breakpoints, we can let go, embracing the ebb and flow with a more fluid and systematic approach to our design foundations. Design and develop rapidly using a handful of related rules, building the system, not every permutation of its contents at arbitrary breakpoints. Streamline communication and collaboration between design and development. Visualise the invisible: componentize responsive space, codifying its implementation and behavior. Create bespoke constraints for your projects to ensure consistent and harmonious designs. Swap jarring breakpoint jumps for buttery-smooth interpolation, with programmatically tailored type and space scales for every screen size."
     }
 ]
