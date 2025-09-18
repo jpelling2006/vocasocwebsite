@@ -18,7 +18,7 @@
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
                 <a class="navbar-brand bold-text" href="#">
-                    <img src="onyon.png" alt="Cardiff Vocaloid Society's Logo" width="30" height="24" class="d-inline-block align-text-top">
+                    <img src="../images/Logo_Pride_Expanded.png" alt="Cardiff Vocaloid Society's Logo" width="60" height="60" class="d-inline-block align-text-centre">
                     Cardiff Vocaloid Society
                 </a>
                 <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#vocanav" aria-controls="vocanav"
@@ -30,7 +30,7 @@
                     <div class="navbar-nav">
                         <a class="nav-link" href="#">Home</a>
                         <a class="nav-link" href="events.html">Events</a>
-                        <a class="nav-link" href="#">About Us</a>
+                        <a class="nav-link" href="https://www.cardiffstudents.com/activities/society/vocaloidsociety/">SU Page</a>
                         <a class="nav-link" href="#">Gallery</a>
                         <a class="nav-link" href="https://linktr.ee/cardiffvocaloid">Linktree</a>
                     </div>
@@ -40,6 +40,34 @@
 
         <div class="container">
             <!-- contents go here. duh!-->
+            <div class="row">
+                <div class="col">
+                    <div class="text-center">
+                        <h3>Upcoming Events</h3>
+                    </div>
+                    <div id="eventsList">
+                        <!-- Events will be displayed here -->
+                    </div>
+                </div>
+                <div class="col">
+                    <div class="row">
+                        <div class="text-center">
+                            <h3>About Us</h3>
+                        </div>
+                        <div class="text-center">
+                            <p>teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship.</p>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="text-center">
+                            <h3>Haider Blog Post</h3>
+                        </div>
+                        <div class="text-center">
+                            <p>too busy aura farming, will write later</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
         </div>
 
         <div class="container">
@@ -49,8 +77,95 @@
                 </div>
             </footer>
         </div>
+
+        <script>
+            // Function to get the ordinal suffix
+            function getOrdinalSuffix(day) {
+                if (day > 3 && day < 21) return 'th'; // Handle 11th, 12th, 13th, etc.
+                switch (day % 10) {
+                case 1: return 'st';
+                case 2: return 'nd';
+                case 3: return 'rd';
+                default: return 'th';
+                }
+            }
+
+            function addHours(date, hours) {
+                date.setHours(date.getHours() + hours);
+                return date;
+            }
+
+            function isDateGreaterThanToday(date) {
+                // Get today's date at midnight (ignoring the time part)
+                const today = new Date();
+                today.setHours(0, 0, 0, 0); // Set time to 00:00:00
+            
+                // Compare the dates (get the time in milliseconds)
+                return new Date(date) > today;
+            }
+
+            // Fetch the JSON file using fetch API
+            fetch('../data/socials.json')
+                .then(response => response.json())  // Parse the JSON response
+                .then(events => {
+                    // Loop through the events and display each one
+                    const eventsListContainer = document.getElementById('eventsList');
+                    var eventsDisplayed = 0
+                    events.forEach(event => {
+                        if (isDateGreaterThanToday(event.date) == true && eventsDisplayed < 3) {
+                            // Convert date to more readable formats
+                            const eventDate = new Date(event.date);
+                            const eventDayName = eventDate.toLocaleDateString('en-GB', { weekday: 'long' });
+                            const eventDayNumber = eventDate.getDate() + getOrdinalSuffix(eventDate.getDate());
+                            const eventMonth = eventDate.toLocaleString('en-GB', { month: 'short' });
+                            const eventTime = eventDate.toLocaleTimeString('en-GB', { hour12: false, hour: '2-digit', minute: '2-digit' });
+                            const eventEndTime = addHours(eventDate, event.length).toLocaleTimeString('en-GB', { hour12: false, hour: '2-digit', minute: '2-digit' });
+
+                            // Create new divs for each event
+                            const dateDiv = document.createElement('div');
+                            dateDiv.classList.add('date-box', 'col-4');
+
+                            const eventDiv = document.createElement('div');
+                            eventDiv.classList.add('event-box', 'col-8');
+
+                            // Add details to the divs
+                            dateDiv.innerHTML = `
+                                <p>
+                                    <b style="font-size: var(--space-xs);">${eventDayName}</b>
+                                    <br>
+                                    <b style="font-size: var(--space-s-l);">${eventDayNumber} ${eventMonth}</b>
+                                    <br>
+                                    <b style="font-size: var(--space-xs-s);">${eventTime} - ${eventEndTime}</b>
+                                </p>
+                            `;
+
+                            eventDiv.innerHTML = `
+                            <p>
+                                <b style="font-size: var(--space-s-l);">${event.title}</b>
+                                <p>${event.description}</p>
+                                <p><strong>Category:</strong> ${event.category}</p>
+                            </p>
+                            `;
+
+                            // Create a div for the row
+                            const rowDiv = document.createElement('div');
+                            rowDiv.classList.add('row-box', 'row', 'row-cols-6');
+
+                            // Append the divs to the row
+                            rowDiv.appendChild(dateDiv);
+                            rowDiv.appendChild(eventDiv);
+                            
+                            // Append the row to the events container
+                            eventsListContainer.appendChild(rowDiv);
+                        }
+                        eventsDisplayed = eventsDisplayed + 1;
+                    });
+                })
+                .catch(error => console.error('Error loading JSON:', error));
+        </script>
     
         <!-- scripts required for bootstrap -->
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/@popperjs/core@2.11.8/dist/umd/popper.min.js" integrity="sha384-I7E8VVD/ismYTF4hNIPjVp/Zjvgyol6VFvRkX/vR+Vc4jQkC+hVqc2pM8ODewa9r" crossorigin="anonymous"></script>
         <script src="https://cdn.jsdelivr.net/npm/bootstrap@5.3.8/dist/js/bootstrap.bundle.min.js" integrity="sha384-FKyoEForCGlyvwx9Hj09JcYn3nv7wiPVlz7YYwJrWVcXK/BmnVDxM+D2scQbITxI" crossorigin="anonymous"></script>
     </body>

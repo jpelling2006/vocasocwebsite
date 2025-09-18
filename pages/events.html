@@ -13,42 +13,39 @@
 
         <title> - Cardiff Vocaloid Society</title>
     </head>
-
-    <style>
-        .calendar {
-
-        }
-
-        .row-box {
-            background-color: #ffffff;
-            height: 42vw - clamp(0vw, 20vw, 42vw);
-            border-radius: 25px;
-            padding: var(--space-3xs-s);
-            margin: var(--space-s-m);
-        }
-
-        .date-box {
-            display: grid;
-            text-align: center;
-            place-items: center;
-            
-            background-color: #dce3eb;
-            border-radius: calc(25px - var(--space-3xs-2xs));
-        }
-
-        .event-box {
-            
-            text-align: center;
-            padding: var(--space-2xs-xs);
-        }
-    </style>
     
     <body>
-        <h1 style="font-size:var(--step-4);">Events</h1>
+        <!-- navbar -->
+        <nav class="navbar navbar-expand-lg">
+            <div class="container-fluid">
+                <a class="navbar-brand bold-text" href="#">
+                    <img src="../images/Logo_Pride_Expanded.png" alt="Cardiff Vocaloid Society's Logo" width="60" height="60" class="d-inline-block align-text-centre">
+                    Cardiff Vocaloid Society
+                </a>
+                <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#vocanav" aria-controls="vocanav"
+                aria-expanded="false"
+                aria-label="Toggle navigation">
+                    <span class="navbar-toggler-icon"></span>
+                </button>
+                <div class="collapse navbar-collapse" id="vocanav">
+                    <div class="navbar-nav">
+                        <a class="nav-link" href="index.html">Home</a>
+                        <a class="nav-link" href="#">Events</a>
+                        <a class="nav-link" href="https://www.cardiffstudents.com/activities/society/vocaloidsociety/">SU Page</a>
+                        <a class="nav-link" href="#">Gallery</a>
+                        <a class="nav-link" href="https://linktr.ee/cardiffvocaloid">Linktree</a>
+                    </div>
+                </div>
+            </div>
+        </nav>
 
+        <div class="container">
+        <h1 style="font-size:var(--step-4);">Events</h1>
+        </div>
         <br>
 
         <div class="calendar">
+        
         <div class="container" id="eventsList">
             <!-- Events will be displayed here -->
         </div>

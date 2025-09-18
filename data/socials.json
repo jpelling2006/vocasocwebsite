@@ -1,5 +1,21 @@
 [
     {
+        "title" : "Freshers Fair Day 1",
+        "date" : "2025-09-24T10:00:00+01:00",
+        "length" : 6,
+        "category" : "vocaloid",
+        "description" : "Come visit us at the freshers fair in the Student Union!"
+    },
+
+    {
+        "title" : "Freshers Fair Day 2",
+        "date" : "2025-09-25T10:00:00+01:00",
+        "length" : 6,
+        "category" : "vocaloid",
+        "description" : "Come visit us at the freshers fair in the Student Union!"
+    },
+
+    {
         "title" : "GIAG 1: Quiz",
         "date" : "2025-09-30T18:30:00+01:00",
         "length" : 2,

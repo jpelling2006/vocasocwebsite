@@ -80,7 +80,7 @@ body {
     font-weight: 300;
     font-style: normal;
 
-    background-color: rgb(255, 195, 235);
+    background-color: rgb(196, 223, 237);
 }
 
 h1 {
@@ -121,4 +121,31 @@ p {
 
 .primary {
     color: aqua;
+}
+
+.calendar {
+
+}
+
+.row-box {
+    background-color: #ffffff;
+    height: 42vw - clamp(0vw, 20vw, 42vw);
+    border-radius: 25px;
+    padding: var(--space-3xs-s);
+    margin: var(--space-s-m);
+}
+
+.date-box {
+    display: grid;
+    text-align: center;
+    place-items: center;
+    
+    background-color: #dce3eb;
+    border-radius: calc(25px - var(--space-3xs-2xs));
+}
+
+.event-box {
+    
+    text-align: center;
+    padding: var(--space-2xs-xs);
 }
