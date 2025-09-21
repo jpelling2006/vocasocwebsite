@@ -170,3 +170,9 @@ p {
   display: inline-block;   /* keeps lists centered as a block */
   text-align: left;        /* but align markers + text properly */
 }
+
+.whitebackground {
+    background-color: #ffffff;
+    border-radius: 25px;
+    margin: 10px;
+}
