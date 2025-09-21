@@ -80,8 +80,23 @@ body {
     font-weight: 300;
     font-style: normal;
 
-    background-color: rgb(196, 223, 237);
+    
+    background-image: url('../images/bg-tileable.png');
+    background-repeat: round;
+    background-size: 120px 120px;
+    image-rendering: pixelated;
+    image-rendering: -moz-crisp-edges;
 }
+
+.background-gradient {
+    background: #94BBE9;
+    background: linear-gradient(90deg,rgba(148, 187, 233, 0.5) 0%, rgba(238, 174, 202, 0.5) 50%, rgba(148, 187, 233, 0.5) 100%);
+}
+
+#grad {
+    background-image: linear-gradient(to bottom, red, yellow);
+  }
+
 
 h1 {
     font-size: var(--step-5);
