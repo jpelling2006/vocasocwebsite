@@ -14,6 +14,33 @@
         <title> - Cardiff Vocaloid Society</title>
     </head>
     <body>
+
+        <style>
+            /* Default (landscape): Two columns using Bootstrap's grid */
+          
+            /* Set default order */
+            .reorder-1 { order: 1; }  /* About Us */
+            .reorder-2 { order: 2; }  /* Events */
+            .reorder-3 { order: 3; }  /* Haider Blog */
+          
+            /* Portrait layout */
+            @media (max-aspect-ratio: 1/1) {
+              #responsive-layout {
+                display: flex;
+                flex-direction: column;
+              }
+          
+              .reorder-1 { order: 1 !important; }  /* About Us (top) */
+              .reorder-2 { order: 2 !important; }  /* Events (middle) */
+              .reorder-3 { order: 3 !important; }  /* Haider Blog (bottom) */
+          
+              .col-lg-6 {
+                width: 100% !important;
+                max-width: 100% !important;
+              }
+            }
+          </style>
+
         <!-- navbar -->
         <nav class="navbar navbar-expand-lg">
             <div class="container-fluid">
@@ -38,10 +65,49 @@
             </div>
         </nav>
 
-        <div class="container">
+        <div id="main-page-grid" class="container">
+            <div id="responsive-layout" class="row d-flex flex-wrap align-items-stretch">
+          
+              <!-- About Us: Top in both modes -->
+              <div id="about-us" class="col-lg-6 reorder-1">
+                <div class="text-center">
+                  <h3>About Us</h3>
+                </div>
+                <div class="text-center">
+                  <p>
+                    teto worship. teto worship. teto worship. teto worship. teto worship.
+                  </p>
+                </div>
+              </div>
+          
+              <!-- Events List: Left in landscape, middle in portrait -->
+              <div id="events" class="col-lg-6 reorder-2">
+                <div class="text-center">
+                  <h3>Upcoming Events</h3>
+                </div>
+                <div id="eventsList">
+                  <!-- Events will be displayed here -->
+                </div>
+              </div>
+          
+              <!-- Haider Blog: Bottom in portrait, below About Us in landscape -->
+              <div id="haider-blog" class="col-lg-6 reorder-3">
+                <div class="text-center">
+                  <h3>Haider Blog Post</h3>
+                </div>
+                <div class="text-center">
+                  <p>too busy aura farming, will write later</p>
+                </div>
+              </div>
+          
+            </div>
+          </div>
+
+        <br><br><br><br><br><br>
+        <div id="main-page-grid" class="container">
             <!-- contents go here. duh!-->
             <div class="row">
-                <div class="col">
+                <div id="events" class="col">
                     <div class="text-center">
                         <h3>Upcoming Events</h3>
                     </div>
@@ -50,7 +116,7 @@
                     </div>
                 </div>
                 <div class="col">
-                    <div class="row">
+                    <div id="about-us" class="row">
                         <div class="text-center">
                             <h3>About Us</h3>
                         </div>
@@ -58,7 +124,7 @@
                             <p>teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship. teto worship.</p>
                         </div>
                     </div>
-                    <div class="row">
+                    <div id="haider-blog" class="row">
                         <div class="text-center">
                             <h3>Haider Blog Post</h3>
                         </div>
