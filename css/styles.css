@@ -149,3 +149,9 @@ p {
     text-align: center;
     padding: var(--space-2xs-xs);
 }
+
+.text-center ol,
+.text-center ul {
+  display: inline-block;   /* keeps lists centered as a block */
+  text-align: left;        /* but align markers + text properly */
+}

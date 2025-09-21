@@ -28,22 +28,72 @@
                 </button>
                 <div class="collapse navbar-collapse" id="vocanav">
                     <div class="navbar-nav">
-                        <a class="nav-link" href="#">Home</a>
+                        <a class="nav-link" href="index.html">Home</a>
                         <a class="nav-link" href="events.html">Events</a>
-                        <a class="nav-link" href="committee.html">committee</a>
+                        <a class="nav-link" href="committee.html">Committee</a>
                         <a class="nav-link" href="https://www.cardiffstudents.com/activities/society/vocaloidsociety/">SU Page</a>
-                        <a class="nav-link" href="#">Gallery</a>
+                        <a class="nav-link" href="gallery.html">Gallery</a>
                         <a class="nav-link" href="https://linktr.ee/cardiffvocaloid">Linktree</a>
                     </div>
                 </div>
             </div>
         </nav>
 
-        <div class="container" style="img{width:100%}">
-            <div col-lg-4>
-                
+        <div class="container">
+            <div class="row">
+                <div class="col-lg-4" id="col1"></div>
+                <div class="col-lg-4" id="col2"></div>
+                <div class="col-lg-4" id="col3"></div>
             </div>
         </div>
+
+        <script>
+            const allImages = [
+                "../images/freshers1.png",
+                "../images/freshers2.png",
+                "../images/freshers3.png",
+                "../images/karaoke1.png",
+                "../images/karaoke2.png",
+                "../images/karaoke3.png",
+                "../images/karaoke4.png",
+                "../images/karaoke5.png",
+                "../images/karaoke6.png",
+                "../images/karaoke7.png",
+                "../images/nq1.png",
+                "../images/refreshersgiag1.png",
+                "../images/refreshersgiag2.png",
+                "../images/social1.png",
+                "../images/svmas1.png",
+                "../images/svmas2.png",
+                "../images/svmas3.png",
+                "../images/svmas4.png",
+                "../images/svmas5.png",
+                "../images/svmas6.png",
+                "../images/svmas7.png",
+            ];
+
+            function distributeInChunks(images) {
+                const colIds = ["col1", "col2", "col3"];
+                const chunkSize = Math.ceil(images.length / colIds.length);
+
+                colIds.forEach((id, colIndex) => {
+                    const container = document.getElementById(id);
+                    const start = colIndex * chunkSize;
+                    const end = start + chunkSize;
+                    const chunk = images.slice(start, end);
+
+                    chunk.forEach(src => {
+                        const newImg = document.createElement("img");
+                        newImg.setAttribute("src", src);
+                        newImg.style.width = "100%";
+                        newImg.style.marginBottom = "10px";
+                        container.appendChild(newImg);
+                    });
+                });
+            }
+
+            distributeInChunks(allImages);
+        </script>
 
         <!-- scripts required for bootstrap -->
         <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
